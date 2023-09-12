@@ -33,8 +33,13 @@ const CustomIcon = L.divIcon({
 function MapWithMarker({ latitude, longitude, data}) {
   const position = [latitude, longitude];
 
+  const maxBounds = [
+    [20.6, -103.4],
+    [20.7, -103.3],
+  ];
+
   return (
-    <MapContainer center={position} zoom={11} scrollWheelZoom={false} style={{ height: '500px', width: '90%', margin: '0 auto', backgroundColor:'#0E3356'}}>
+    <MapContainer center={position} maxBoundsViscosity={1.0} maxBounds={maxBounds} zoom={11} scrollWheelZoom={false} style={{ height: '500px', width: '90%', margin: '0 auto', backgroundColor:'#0E3356', boxShadow: '10px 10px 29px -7px rgba(0,0,0,0.75)'}}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -64,13 +69,12 @@ function App() {
     return() => {      
       socket.disconnect();    
     }  
-  });  
+  });
   
   return (    
     <div className="App">
-      <MenuHeader />      
-      <MapWithMarker latitude={latitude} longitude={longitude} data={periodicData}/>      
-      <p style={{'text-align': 'center', 'font-size': '40px'}}>Datos Recibidos: {periodicData}</p>    
+      <MenuHeader />
+      <MapWithMarker latitude={latitude} longitude={longitude} data={periodicData}/>
     </div>  
   );
 }
