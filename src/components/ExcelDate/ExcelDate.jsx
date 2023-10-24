@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import dayjs from 'dayjs';
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
-import { emphasize } from "@mui/material";
 import Button from '@mui/material/Button';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+
+import ExcelExport from "../ExcelExport/ExcelExport";
 
 const StyledDiv = styled.div`
-    width: 35%;
+    width: 40%;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -83,6 +84,7 @@ const ExcelDate = (props) => {
                     </DemoItem>
                 </DemoContainer>
                 <StyledButton size="small" variant="outlined" onClick={handleClick}>enviar</StyledButton>
+                <ExcelExport data={responseData} fileName={'reporte'}/>
             </StyledDiv>
             <LineChart
                 style={{'margin': '0 auto'}}
