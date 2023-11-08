@@ -112,19 +112,25 @@ const ExcelDate = (props) => {
                 <Line
                     type="monotone"
                     dataKey="ph"
-                    stroke="#9849d8"
+                    stroke="#7432d8"
                     dot={false}
                 />
                 <Line
                     type="monotone"
                     dataKey="turbidity"
-                    stroke="#7633d8"
+                    stroke="#2154d8"
                     dot={false}
                 />
                 <Line
                     type="monotone"
                     dataKey="temperature"
-                    stroke="#9849d8"
+                    stroke="#1293d8"
+                    dot={false}
+                />
+                <Line
+                    type="monotone"
+                    dataKey="ec"
+                    stroke="#2135d8"
                     dot={false}
                 />
             </LineChart>

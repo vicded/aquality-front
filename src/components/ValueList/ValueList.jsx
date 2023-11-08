@@ -60,7 +60,7 @@ const ValueList = ({data}) => {
     
     const validate_data = (data) => {
         if (data) {
-            const {ph, tds, turbidity, temperature, date_entered, station_name} = JSON.parse(data);
+            const {ph, ec, tds, turbidity, temperature, date_entered, station_name} = JSON.parse(data);
             //const parsedDate = new Date(date_entered);
             console.log('aaaaa', date_entered);
             console.log('type', typeof date_entered);
@@ -79,6 +79,7 @@ const ValueList = ({data}) => {
                     <h2>{station_name}</h2>
                     <StyledUl>
                         <StyledLi>ph:<StyledSpan style={{'color': ph_color(ph)}}>{ph}</StyledSpan></StyledLi>
+                        <StyledLi>ec:<StyledSpan style={{'color': 'gray'}}>{ec}</StyledSpan></StyledLi>
                         <StyledLi>solidos disueltos:<StyledSpan style={{'color': tds_color(tds)}}>{tds}</StyledSpan></StyledLi>
                         <StyledLi>turbiedad:<StyledSpan style={{'color': turbidity_color(turbidity)}}>{turbidity}</StyledSpan></StyledLi>
                         <StyledLi>temperatura:<StyledSpan style={{'color': green}}>{temperature}</StyledSpan></StyledLi>
